@@ -7,15 +7,18 @@ camera = PiCamera()
 goAgain = "y"
 people_list = ["Amogh", "Laddha", "Prakhar"]
 results = [False, False, False]
+print("People list retrieved")
 
 # Load the jpg files into numpy arrays
 amogh_image = face_recognition.load_image_file("amogh.jpg")
 prakhar_image = face_recognition.load_image_file("prakhar.jpg")
 laddha_image = face_recognition.load_image_file("laddha.jpg")
+print("Images read")
 
 amogh_face_encoding = face_recognition.face_encodings(amogh_image)[0]
 laddha_face_encoding = face_recognition.face_encodings(laddha_image)[0]
 prakhar_face_encoding = face_recognition.face_encodings(prakhar_image)[0]
+print("Encoding done")
 
 known_faces = [
     amogh_face_encoding,
@@ -26,6 +29,7 @@ known_faces = [
 
 while goAgain == "y":
     os.remove("amoghnew.jpg")
+    print("Starting camera")
     camera.start_preview()
     sleep(5)
     camera.capture('/home/pi/Documents/FaceDetection/amoghnew.jpg')

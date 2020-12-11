@@ -1,0 +1,5 @@
+cmake
+dlib
+wheel
+face-recognition==1.3.0
+picamera==1.13
